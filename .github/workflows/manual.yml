@@ -1,0 +1,14 @@
+name: Manual # 워크플로우 이름
+on: # 동작할 위치 
+  workflow_dispatch: # 수동 실행 이벤트
+    inputs: 
+      greeting: # 입력 파라미터명
+        type: string # 데이터형
+        default: Hello # 입력 파라미터 기본 값
+        required: true # 입력 파라미터 필수 플래그
+        description: A cheerful word # 입력 파라미터 개요
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+        run: echo "${{ inputs.greeting }}, world!" # 입력 파라미터 greeting 사용
